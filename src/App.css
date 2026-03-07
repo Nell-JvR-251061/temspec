@@ -1,3 +1,5 @@
+
+/* Beginning of OG code */
 .App {
   text-align: center;
 }
@@ -35,4 +37,14 @@
   to {
     transform: rotate(360deg);
   }
+}
+/* End of OG code */
+
+/* Color palette variables*/
+:root{
+  --primary-purple: #37283E;
+  --secondary-purple: #9A748C;
+  --blue: #E8F2F2;
+  --brown: #994A2E;
+  --orange: #FFB23F;
 }
