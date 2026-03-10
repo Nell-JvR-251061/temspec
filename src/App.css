@@ -15,6 +15,23 @@
   color: var(--primary-purple) !important;
 }
 
+.blue-text-color {
+  color: var(--blue) !important;
+}
+
+.primary-text-font{
+  font-family: "Unbounded";
+}
+
+.secondary-text-font{
+ font-family: "Ubuntu";
+}
+
+
+body{
+  background-color: var(--primary-purple) !important;
+}
+
 /* Beginning of initial React code */
 .App {
   text-align: center;
@@ -27,7 +44,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 5s linear;
   }
 }
 
@@ -113,7 +130,8 @@ a.menu.active {
 .info-card-title {
   font-family: "Unbounded";
   text-align: center;
-  margin: 10px;
+  padding: 10px;
+  margin: 0;
   color: var(--blue);
 }
 
@@ -126,4 +144,8 @@ a.menu.active {
 .card {
   border-width: 0 !important;
   border-radius: 16px !important;
+}
+
+#buffer-logo{
+  padding: 8%;
 }

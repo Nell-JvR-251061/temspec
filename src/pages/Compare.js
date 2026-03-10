@@ -1,4 +1,5 @@
 import '../App.css'; //App's styling document
+import InfoCard from '../components/InfoCard';
 
 const Compare = () =>{
     

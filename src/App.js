@@ -17,12 +17,15 @@ function App() {
         <NavBar />
       </nav>
 
-
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/compare" element={<Compare />} />
         <Route path="/timeline" element={<Timeline />} />
       </Routes>
+
+      <footer>
+          <h4>Footer</h4>
+      </footer>
     </BrowserRouter>
 
 
