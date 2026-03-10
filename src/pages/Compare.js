@@ -1,0 +1,13 @@
+import '../App.css'; //App's styling document
+
+const Compare = () =>{
+    
+    return(
+        <div>
+            <h1>Compare</h1>
+        </div>
+    );
+
+};
+
+export default Compare;
