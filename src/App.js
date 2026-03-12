@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Landing from './pages/Landing';
 import Compare from './pages/Compare';
 import Timeline from './pages/Timeline';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -24,8 +25,9 @@ function App() {
       </Routes>
 
       <footer>
-          <h4>Footer</h4>
+        <Footer/>
       </footer>
+
     </BrowserRouter>
 
 

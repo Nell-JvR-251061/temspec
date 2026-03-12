@@ -4,12 +4,19 @@ import logo from "../components/temspecLogo.svg";
 import { useState, useEffect } from 'react';
 import InfoCard from '../components/InfoCard';
 import Buffer from '../components/Buffer';
+import TemDisplay from '../components/TemDisplay';
+import TemEvolutionCard from '../components/TemEvolutionCard';
 
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Landing = () => {
 
     const [data, setData] = useState([]);
     const [isLoading, setLoading] = useState(true);
+    let chosenTem;
 
     useEffect(() => {
         const getData = async () => {
@@ -28,21 +35,29 @@ const Landing = () => {
 
     }, []);
 
-    console.log(isLoading);
-    console.log(data);
-
     if (isLoading) {
         return (
-            <Buffer/>
+            <Buffer />
         );
     }
     else {
+        chosenTem = Math.floor(Math.random() * (data.length));
+
         return (
-            <div className='landing-left col-md-5 col-12'>
-                <InfoCard />
-                <div>
-                    <h4 className='blue-text-color'>{data[Math.floor(Math.random() * data.length)].name}</h4>
+            <div className='d-flex flex-row flex-wrap'>
+                <div className='landing-left col-lg-5 col-12'>
+                    <InfoCard />
+                    <TemEvolutionCard
+                    _dataBase = {data}
+                    _tem = {data[chosenTem]}
+                    />
                 </div>
+                <div className='landing-right col-lg-7 col-12'>
+                    <TemDisplay>
+                        {data[chosenTem]}
+                    </TemDisplay>
+                </div>
+
             </div>
         );
     }
