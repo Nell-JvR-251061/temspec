@@ -14,7 +14,6 @@ const TemEvolutionCard = ({ _dataBase, _tem }) => {
 
     const [evos, setEvos] = useState([])
     const [names, setNames] = useState([])
-    // const [imgs, setImgs] = useState([])
     const [isLoading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -39,14 +38,22 @@ const TemEvolutionCard = ({ _dataBase, _tem }) => {
         });
 
         return (
-            <Container className='tem-evo shadow-lg'>
+            <Container className='tem-evo'>
                 <Row className='evo-title'>
-                    <h1 className='text-center primary-text-font blue-text-color'>Evolution Chain</h1>
+                    <h2 className='text-center primary-text-font blue-text-color no-margin'>Evolution Chain</h2>
                 </Row>
+
                 <Row className='evo-card'>
                     {imgs.map((url, index) => (
                         <Col key={index} className='d-flex flex-column justify-content-center align-items-center justify-content-evenly'>
                             <img src={url} className='img-fluid justify-self-center'></img>
+                        </Col>
+                    ))}
+                </Row>
+
+                <Row className='evo-names'>
+                    {imgs.map((url, index) => (
+                        <Col key={index} className='d-flex flex-column justify-content-center align-items-center justify-content-evenly'>
                             <h4 className='blue-text-color'>{names[index]}</h4>
                         </Col>
                     ))}

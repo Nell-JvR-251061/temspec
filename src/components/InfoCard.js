@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 
 const InfoCard = () => {
     return (
-        <Card className='shadow-lg info-card'>
+        <Card className='info-card'>
             <Card.Body className='info-card-top'>
                 <h3 className='info-card-title'>About TemSpec</h3>
                 <Card>

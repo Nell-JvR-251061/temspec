@@ -114,87 +114,177 @@ const TemDisplay = (_tem) => {
 
 
         return (
-            <Container className='tem-display shadow-lg'>
-                <Row>
-                    <Col className='col-6'>
-                        <div className=' d-flex flex-row justify-content-between img-bg'>
-                            <img src={temImg} className='col-6'></img>
-                            <img src={temLumaImg} className='col-6 flip-image'></img>
-                        </div>
+            // <Container className='tem-display'>
+            //     <Row>
+            //         <Col className='col-6'>
+            //             <div className=' d-flex flex-row justify-content-between img-bg'>
+            //                 <img src={temImg} className='col-6'></img>
+            //                 <img src={temLumaImg} className='col-6 flip-image'></img>
+            //             </div>
 
-                        <div className='d-flex flex-row justify-content-between secondary-text-font display-snippet'>
-                            <h4 className='blue-text-color'>Height</h4>
-                            <h4 className='blue-text-color'>{temHeight} cm</h4>
-                        </div>
+            //             <div className='d-flex flex-row justify-content-between secondary-text-font display-snippet'>
+            //                 <h4 className='blue-text-color'>Height</h4>
+            //                 <h4 className='blue-text-color'>{temHeight} cm</h4>
+            //             </div>
 
-                        <div className='d-flex flex-row justify-content-between secondary-text-font display-snippet'>
-                            <h4 className='blue-text-color'>Weight</h4>
-                            <h4 className='blue-text-color'>{temWeight} kg</h4>
-                        </div>
+            //             <div className='d-flex flex-row justify-content-between secondary-text-font display-snippet'>
+            //                 <h4 className='blue-text-color'>Weight</h4>
+            //                 <h4 className='blue-text-color'>{temWeight} kg</h4>
+            //             </div>
 
-                        <div className='d-flex flex-row justify-content-between secondary-text-font display-snippet' >
-                            <h4 className='blue-text-color'>Catch Rate</h4>
-                            <h4 className='blue-text-color'>{temCatcatchRate}</h4>
-                        </div>
+            //             <div className='d-flex flex-row justify-content-between secondary-text-font display-snippet' >
+            //                 <h4 className='blue-text-color'>Catch Rate</h4>
+            //                 <h4 className='blue-text-color'>{temCatcatchRate}</h4>
+            //             </div>
 
-                        <div className='d-flex flex-column secondary-text-font display-snippet'>
-                            <h4 className='blue-text-color text-center'>Traits</h4>
-                            <ul className='d-flex flex-row flex-wrap justify-content-between blue-text-color'>
-                                {temTraits.map((trait, index) => (
-                                    <Tooltip title={trait}>
-                                        <li key={index}>
-                                            {trait}
-                                        </li>
-                                    </Tooltip>
-                                ))}
-                            </ul>
-                        </div>
+            //             <div className='d-flex flex-column secondary-text-font display-snippet'>
+            //                 <h4 className='blue-text-color text-center'>Traits</h4>
+            //                 <ul className='d-flex flex-row flex-wrap justify-content-between blue-text-color'>
+            //                     {temTraits.map((trait, index) => (
+            //                         <Tooltip title={trait}>
+            //                             <li key={index}>
+            //                                 {trait}
+            //                             </li>
+            //                         </Tooltip>
+            //                     ))}
+            //                 </ul>
+            //             </div>
+            //         </Col>
+
+            //         <Col className='col-6'>
+            //             <div className='d-flex flex-row flex-wrap justify-content-around primary-text-font' >
+            //                 <h3 className='blue-text-color text-center'>{temName}</h3>
+            //                 <h3 className='blue-text-color text-center'>[ {temNumber} ]</h3>
+            //             </div>
+
+            //             <ul className='d-flex flex-row justify-content-around blue-text-color secondary-text-font'>
+            //                 {temTypes.map((type, index) => (
+            //                     <li className='type display-snippet' key={index}>
+            //                         {type}
+            //                     </li>
+            //                 ))}
+            //             </ul>
+
+            //             <div className='d-flex flex-row justify-content-center graph-container' >
+            //                 <Radar data={graphData} />
+            //             </div>
+
+            //             <Container>
+            //                 <Row>
+            //                     {temMoves.slice(0, 2).map((type, index) => (
+            //                         <Col className='display-snippet type align-self-center' key={index}>
+            //                             {type.name}
+            //                         </Col>
+            //                     ))}
+            //                 </Row>
+            //                 <Row>
+            //                     {temMoves.slice(2, 4).map((type, index) => (
+            //                         <Col className='display-snippet type align-self-center' key={index}>
+            //                             {type.name}
+            //                         </Col>
+            //                     ))}
+            //                 </Row>
+            //                 <Row>
+            //                     {temMoves.slice(4, 6).map((type, index) => (
+            //                         <Col className='display-snippet type align-self-center' key={index}>
+            //                             {type.name}
+            //                         </Col>
+            //                     ))}
+            //                 </Row>
+            //             </Container>
+            //         </Col>
+            //     </Row>
+            // </Container >
+
+            <Container>
+                <Row className='blue-text-color'>
+                    <Col className='d-flex flex-column justify-content-between'>
+                        <Row>
+                            <Col>
+                                <img src={temImg} className='col-6 display-img'></img>
+                            </Col>
+                            <Col>
+                                <img src={temLumaImg} className='col-6 display-img flip-image'></img>
+                            </Col>
+                        </Row>
+                        <Row className='display-snippet'>
+                            <Col>
+                                <h4>Height</h4>
+                            </Col>
+                            <Col className='text-end'>
+                                <h4>{temHeight} cm</h4>
+                            </Col>
+                        </Row>
+                        <Row className='display-snippet'>
+                            <Col>
+                                <h4>Weight</h4>
+                            </Col>
+                            <Col className='text-end'>
+                                <h4>{temWeight} kg</h4>
+                            </Col>
+                        </Row>
+                        <Row className='display-snippet'>
+                            <Col>
+                                <h4>Catch Rate</h4>
+
+                            </Col>
+                            <Col className='text-end'>
+                                <h4>{temCatcatchRate}</h4>
+                            </Col>
+                        </Row>
+                        <Row className='display-snippet text-center'>
+                            <h3 className='text-center'>Traits</h3>
+                            {temTraits.map((trait, index) => (
+                                <Tooltip title={trait}>
+                                    <Col key={index}>
+                                        <h4>{trait}</h4>
+                                    </Col>
+                                </Tooltip>
+                            ))}
+                        </Row>
                     </Col>
 
-                    <Col className='col-6'>
-                        <div className='d-flex flex-row flex-wrap justify-content-around primary-text-font' >
-                            <h3 className='blue-text-color text-center'>{temName}</h3>
-                            <h3 className='blue-text-color text-center'>[ {temNumber} ]</h3>
-                        </div>
-
-                        <ul className='d-flex flex-row justify-content-around blue-text-color secondary-text-font'>
+                    <Col>
+                        <Row className='text-center'>
+                            <Col>
+                                <h3 className='blue-text-color'>{temName}</h3>
+                            </Col>
+                            <Col>
+                                <h3 className='blue-text-color'>[ {temNumber} ]</h3>
+                            </Col>
+                        </Row>
+                        <Row className='text-center'>
                             {temTypes.map((type, index) => (
-                                <li className='type display-snippet' key={index}>
-                                    {type}
-                                </li>
+                                <Col className='display-snippet' key={index}> <h4>{type}</h4></Col>
                             ))}
-                        </ul>
-
-                        <div className='d-flex flex-row justify-content-center graph-container' >
+                        </Row>
+                        <Row className='graph-container'>
                             <Radar data={graphData} />
-                        </div>
-
-                        <Container>
-                            <Row>
-                                {temMoves.slice(0, 2).map((type, index) => (
-                                    <Col className='display-snippet type align-self-center' key={index}>
-                                        {type.name}
-                                    </Col>
-                                ))}
-                            </Row>
-                            <Row>
-                                {temMoves.slice(2, 4).map((type, index) => (
-                                    <Col className='display-snippet type align-self-center' key={index}>
-                                        {type.name}
-                                    </Col>
-                                ))}
-                            </Row>
-                            <Row>
-                                {temMoves.slice(4, 6).map((type, index) => (
-                                    <Col className='display-snippet type align-self-center' key={index}>
-                                        {type.name}
-                                    </Col>
-                                ))}
-                            </Row>
-                        </Container>
+                        </Row>
+                        <Row className='text-center'>
+                            {temMoves.slice(0, 2).map((type, index) => (
+                                <Col key={index} className='display-snippet'>
+                                    <h4>{type.name}</h4>
+                                </Col>
+                            ))}
+                        </Row>
+                        <Row className='text-center'>
+                            {temMoves.slice(2, 4).map((type, index) => (
+                                <Col key={index} className='display-snippet'>
+                                    <h4>{type.name}</h4>
+                                </Col>
+                            ))}
+                        </Row>
+                        <Row className='text-center'>
+                            {temMoves.slice(4, 6).map((type, index) => (
+                                <Col key={index} className='display-snippet'>
+                                    <h4>{type.name}</h4>
+                                </Col>
+                            ))}
+                        </Row>
                     </Col>
                 </Row>
-            </Container >
+            </Container>
         );
     };
 }
