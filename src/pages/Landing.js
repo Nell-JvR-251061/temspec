@@ -6,6 +6,7 @@ import InfoCard from '../components/InfoCard';
 import Buffer from '../components/Buffer';
 import TemDisplay from '../components/TemDisplay';
 import TemEvolutionCard from '../components/TemEvolutionCard';
+import Compare from './Compare';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -43,14 +44,15 @@ const Landing = () => {
     }
     else {
         chosenTem = Math.floor(Math.random() * (data.length));
+        console.log(data[0]);
 
         return (
             <div className='d-flex flex-row flex-wrap'>
                 <div className='landing-left col-lg-5 col-12'>
                     <InfoCard />
                     <TemEvolutionCard
-                    _dataBase = {data}
-                    _tem = {data[chosenTem]}
+                        _dataBase={data}
+                        _tem={data[chosenTem]}
                     />
                 </div>
                 <div className='landing-right col-lg-7 col-12'>
