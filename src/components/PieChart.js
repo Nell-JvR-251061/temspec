@@ -21,7 +21,7 @@ const PieChart = ({ _statOne, _statTwo }) => {
             {
                 label: 'Dataset 1',
                 data: [_statOne, _statTwo],
-                backgroundColor: ['rgb(154 116 140)',' rgb(232 242 242)'],
+                backgroundColor: ['rgb(154 116 140)', ' rgb(232 242 242)'],
             },
         ],
     };
@@ -31,22 +31,27 @@ const PieChart = ({ _statOne, _statTwo }) => {
         responsive: true,
         plugins: {
             legend: {
-                display: false,
+                display: true,
+                align: 'center',
+                
+                labels: {
+                    color: 'rgba(232, 242, 242, 1)',
+                    font: {
+                        family: "Ubuntu",
+                        size: 18,
+                        
+                    },
+                },
             },
             datalabels: {
                 display: true,
                 align: 'center',
                 anchor: 'center',
                 color: '#994a2e',
-                font: { weight: 'bold', size: '24px'},
+                font: { weight: 'bold', size: '24px' },
                 formatter: (value, context) => {
                     let returnVar
-                    if(value === _statOne){
-                        returnVar = "Male\n " + value + "%";
-                    }
-                    else{
-                        returnVar = "Female\n   " + value + "%";
-                    }
+                    returnVar = " " + value + "%";
                     return returnVar;
                 }
             }

@@ -6,8 +6,6 @@ import {
     RadialLinearScale,
     ArcElement,
     Legend,
-    scales,
-    Ticks,
 } from 'chart.js';
 
 ChartJS.register(
@@ -20,6 +18,7 @@ ChartJS.register(
 const PolarChart = ({ _statOne, _statTwo, _statThree, _statFour, _statFive, _statSix, _statSeven }) => {
 
     const labels = ['ATK', 'DEF', 'HP', 'spATK', 'SPD', 'spDEF', 'STA'];
+
     const data = {
         labels,
         datasets: [
@@ -57,16 +56,17 @@ const PolarChart = ({ _statOne, _statTwo, _statThree, _statFour, _statFive, _sta
                 display: true,
                 align: 'end',
                 anchor: 'center',
+                offset: -5,
                 color: '#ffb23f',
-                font: { weight: 'bold', size: '20px' },
+                font: { weight: 'bold', size: '18px' },
                 formatter: (value, context) => {
                     let returnVar;
                     let label = context.chart.data.labels[context.dataIndex];
-                    if(value > 1 ){
-                        returnVar = label + ' ' + value;
+                    if(value > 5 ){
+                        returnVar = label + " " + (value-4);
                     }
                     else{
-                        returnVar = value;
+                        returnVar = (value-4);
                     }
                     return returnVar;
                 }

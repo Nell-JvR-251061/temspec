@@ -84,7 +84,7 @@ const BarChart = ({ _statOne, _statTwo }) => {
     };
 
     return (
-        <div className='bar-display'>
+        <div style={{height: '100%'}} className='bar-display'>
             <Bar data={data} options={options} />
         </div>
     );

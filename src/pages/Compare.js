@@ -1,9 +1,7 @@
 import '../App.css'; //App's styling document
-import InfoCard from '../components/InfoCard';
 import Buffer from '../components/Buffer';
 import BarChart from '../components/BarChart';
-import PieChart from '../components/PieChart';
-import PolarChart from '../components/PolarChart';
+import TemCompare from '../components/TemCompare';
 
 import { useState, useEffect } from 'react';
 
@@ -18,6 +16,7 @@ const Compare = () => {
 
     const [data, setData] = useState([]);
     const [isLoading, setLoading] = useState(true);
+    const [tem, setTem] = useState({});
 
     useEffect(() => {
         const getData = async () => {
@@ -32,16 +31,22 @@ const Compare = () => {
             setLoading(false);
         };
 
+
         getData();
 
     }, []);
 
-    const RandomizeTems = () => {
-        let returnArray = [];
-        for (let i = 0; i < 2; i++) {
-            returnArray[i] = data[Math.floor(Math.random() * (data.length))];
+    const UpdateTem = (_name, _array) => {
+        let returnVar;
+        if (_name == null) {
+            returnVar = data[Math.floor(Math.random() * (data.length))];
         }
-        return returnArray;
+        else {
+            let found = _array.findIndex(temName => temName == _name);
+            returnVar = data[found];
+        }
+
+        setTem(returnVar);
     }
 
     if (isLoading) {
@@ -51,161 +56,80 @@ const Compare = () => {
     }
     else {
 
-        let tems = RandomizeTems();
-        console.log(tems);
+        if (JSON.stringify(tem) === '{}') {
+            UpdateTem();
+        }
+
+        let array = data.map(e => e.name);
 
         return (
             <Container className='compare-container'>
                 <Row className='column-gap-3'>
-                    <Col className='d-grid row-gap-3 tem-display p-5'>
-                        <Row className='text-center'>
-                            <Col className='col-12 col-md-6'>
-                                <h3 className='blue-text-color primary-text-font align-content-center'>{tems[0].name}</h3>
-                            </Col>
-                            <Col className='col-12 col-md-6'>
-                                <h3 className='blue-text-color primary-text-font align-content-center'>[ {tems[0].number} ]</h3>
-                            </Col>
-                        </Row>
-
-                        <Row>
-                            <Col className='align-content-center'>
-                                <img src={tems[0].wikiRenderStaticUrl} className='col-6 display-img'></img>
-                            </Col>
-                            <Col className='align-content-center'>
-                                <img src={tems[0].wikiRenderStaticLumaUrl} className='col-6 display-img flip-image'></img>
-                            </Col>
-                        </Row>
-                        
-                        <Row>
-                            <h3 className='blue-text-color primary-text-font text-center'>Gender Ratio</h3>
-                        </Row>
-                        <Row className='justify-content-center'>
-                            <PieChart
-                                _statOne={tems[0].genderRatio.male}
-                                _statTwo={tems[0].genderRatio.female}
-                            />
-                        </Row>
-
-                        <Row>
-                            <h3 className='blue-text-color primary-text-font text-center'>Training Values</h3>
-                        </Row>
-                        <Row className='justify-content-center'>
-                            <PolarChart
-                                _statOne={tems[0].tvYields.atk + 1}
-                                _statTwo={tems[0].tvYields.def + 1}
-                                _statThree={tems[0].tvYields.hp + 1}
-                                _statFour={tems[0].tvYields.spatk + 1}
-                                _statFive={tems[0].tvYields.spd + 1}
-                                _statSix={tems[0].tvYields.spdef + 1}
-                                _statSeven={tems[0].tvYields.sta + 1}
-                            />
-                        </Row>
-                    </Col>
+                    <TemCompare
+                        _tem={tem}
+                    />
 
                     <Col className='tem-display p-5'>
                         <Row>
                             <h3 className='blue-text-color primary-text-font text-center'>Hit Points</h3>
                             <BarChart
-                                _statOne={tems[0].stats.hp}
-                                _statTwo={tems[1].stats.hp}
+                                _statOne={tem.stats.hp}
+                                _statTwo={tem.stats.hp}
                             />
                         </Row>
                         <Row>
                             <h3 className='blue-text-color primary-text-font text-center'>Speed</h3>
                             <BarChart
-                                _statOne={tems[0].stats.spd}
-                                _statTwo={tems[1].stats.spd}
+                                _statOne={tem.stats.spd}
+                                _statTwo={tem.stats.spd}
                             />
                         </Row>
                         <Row>
                             <h3 className='blue-text-color primary-text-font text-center'>Stamina</h3>
                             <BarChart
-                                _statOne={tems[0].stats.sta}
-                                _statTwo={tems[1].stats.sta}
+                                _statOne={tem.stats.sta}
+                                _statTwo={tem.stats.sta}
                             />
                         </Row>
                         <Row>
                             <h3 className='blue-text-color primary-text-font text-center'>Attack</h3>
                             <BarChart
-                                _statOne={tems[0].stats.atk}
-                                _statTwo={tems[1].stats.atk}
+                                _statOne={tem.stats.atk}
+                                _statTwo={tem.stats.atk}
                             />
                         </Row>
                         <Row>
                             <h3 className='blue-text-color primary-text-font text-center'>Special Attack</h3>
                             <BarChart
-                                _statOne={tems[0].stats.spatk}
-                                _statTwo={tems[1].stats.spatk}
+                                _statOne={tem.stats.spatk}
+                                _statTwo={tem.stats.spatk}
                             />
                         </Row>
                         <Row>
                             <h3 className='blue-text-color primary-text-font text-center'>Defense</h3>
                             <BarChart
-                                _statOne={tems[0].stats.def}
-                                _statTwo={tems[1].stats.def}
+                                _statOne={tem.stats.def}
+                                _statTwo={tem.stats.def}
                             />
                         </Row>
                         <Row>
                             <h3 className='blue-text-color primary-text-font text-center'>Special Defense</h3>
                             <BarChart
-                                _statOne={tems[0].stats.spdef}
-                                _statTwo={tems[1].stats.spdef}
+                                _statOne={tem.stats.spdef}
+                                _statTwo={tem.stats.spdef}
                             />
                         </Row>
                     </Col>
 
-                    <Col className='d-grid row-gap-3 tem-display p-5'>
-                        <Row className='text-center'>
-                            <Col className='col-12 col-md-6'>
-                                <h3 className='blue-text-color primary-text-font align-content-center'>{tems[1].name}</h3>
-                            </Col>
-                            <Col className='col-12 col-md-6'>
-                                <h3 className='blue-text-color primary-text-font align-content-center'>[ {tems[1].number} ]</h3>
-                            </Col>
-                        </Row>
-
-                        <Row>
-                            <Col className='align-content-center'>
-                                <img src={tems[1].wikiRenderStaticUrl} className='col-6 display-img'></img>
-                            </Col>
-                            <Col className='align-content-center'>
-                                <img src={tems[1].wikiRenderStaticLumaUrl} className='col-6 display-img flip-image'></img>
-                            </Col>
-                        </Row>
-
-                        <Row>
-                            <h3 className='blue-text-color primary-text-font text-center'>Gender Ratio</h3>
-                        </Row>
-                        <Row className='justify-content-center'>
-                            <PieChart
-                                _statOne={tems[1].genderRatio.male}
-                                _statTwo={tems[1].genderRatio.female}
-                            />
-                        </Row>
-
-                        <Row>
-                            <h3 className='blue-text-color primary-text-font text-center'>Training Values</h3>
-                        </Row>
-                        <Row className='justify-content-center'>
-                            <PolarChart
-                                _statOne={tems[1].tvYields.atk + 1}
-                                _statTwo={tems[1].tvYields.def + 1}
-                                _statThree={tems[1].tvYields.hp + 1}
-                                _statFour={tems[1].tvYields.spatk + 1}
-                                _statFive={tems[1].tvYields.spd + 1}
-                                _statSix={tems[1].tvYields.spdef + 1}
-                                _statSeven={tems[1].tvYields.sta + 1}
-                            />
-                        </Row>
-                    </Col>
+                    <TemCompare
+                        _tem={tem}
+                    />
                 </Row>
 
             </Container>
         );
 
     };
-
-
-}
+};
 
 export default Compare;
