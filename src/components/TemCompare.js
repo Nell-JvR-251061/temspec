@@ -12,7 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const TemCompare = ({_tem}) => {
 
     return (
-        <Col className='d-grid row-gap-3 tem-display p-5'>
+        <div className='d-grid row-gap-5'>
             <Row className='text-center'>
                 <Col className='col-12 col-md-6'>
                     <h3 className='blue-text-color primary-text-font align-content-center'>{_tem.name}</h3>
@@ -22,11 +22,11 @@ const TemCompare = ({_tem}) => {
                 </Col>
             </Row>
 
-            <Row>
-                <Col className='align-content-center'>
+            <Row >
+                <Col className='image-bg align-content-center'>
                     <img src={_tem.wikiRenderStaticUrl} className='col-6 display-img'></img>
                 </Col>
-                <Col className='align-content-center'>
+                <Col className='image-bg align-content-center'>
                     <img src={_tem.wikiRenderStaticLumaUrl} className='col-6 display-img flip-image'></img>
                 </Col>
             </Row>
@@ -55,7 +55,7 @@ const TemCompare = ({_tem}) => {
                     _statSeven={_tem.tvYields.sta + 5}
                 />
             </Row>
-        </Col>
+        </div>
     );
 }
 

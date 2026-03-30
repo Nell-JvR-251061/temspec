@@ -10,9 +10,6 @@ const TemEvolutionCard = ({_dataBase, _tem }) => {
     let tem = _tem;
     let data = _dataBase;
 
-    console.log(tem);
-    console.log(data);
-
     let evos = tem.evolution.evolutionTree.map(e => e.number);
     let names = tem.evolution.evolutionTree.map(e => e.name)
 

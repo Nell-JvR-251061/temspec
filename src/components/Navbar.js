@@ -30,7 +30,7 @@ const NavBar = () => {
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="w-100 m-100 justify-content-evenly">
+                        <Nav className="w-100 m-100 justify-content-evenly align-items-center">
                             <NavLink className="primary-text-color nav-link menu"  to="/">HOME</NavLink>
                             <NavLink className="primary-text-color nav-link menu" to="/compare">COMPARISON</NavLink>
                             <NavLink className="primary-text-color nav-link menu" to="/timeline">TIMELINE</NavLink>

@@ -64,9 +64,9 @@ const TemDisplay = (_tem) => {
                         </Col>
                     </Row>
                     <Row className='display-snippet text-center secondary-text-font'>
-                        <h3 className='text-center primary-text-font'>Traits</h3>
+                        <h3 className='text-center primary-text-font align-content-center'>Traits</h3>
                         {temTraits.map((trait, index) => (
-                            <Col key={index}>
+                            <Col className='text-center align-content-center' key={index}>
                                 <h4>{trait}</h4>
                             </Col>
                         ))}

@@ -1,7 +1,10 @@
 import '../App.css'; //App's styling document
 import Buffer from '../components/Buffer';
-import BarChart from '../components/BarChart';
 import TemCompare from '../components/TemCompare';
+import MiddleCompare from '../components/MiddleCompare';
+
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 
 import { useState, useEffect } from 'react';
 
@@ -16,7 +19,8 @@ const Compare = () => {
 
     const [data, setData] = useState([]);
     const [isLoading, setLoading] = useState(true);
-    const [tem, setTem] = useState({});
+    const [temA, setTemA] = useState({});
+    const [temB, setTemB] = useState({});
 
     useEffect(() => {
         const getData = async () => {
@@ -31,12 +35,11 @@ const Compare = () => {
             setLoading(false);
         };
 
-
         getData();
 
     }, []);
 
-    const UpdateTem = (_name, _array) => {
+    const UpdateTemA = (_name, _array) => {
         let returnVar;
         if (_name == null) {
             returnVar = data[Math.floor(Math.random() * (data.length))];
@@ -46,7 +49,20 @@ const Compare = () => {
             returnVar = data[found];
         }
 
-        setTem(returnVar);
+        setTemA(returnVar);
+    }
+
+    const UpdateTemB = (_name, _array) => {
+        let returnVar;
+        if (_name == null) {
+            returnVar = data[Math.floor(Math.random() * (data.length))];
+        }
+        else {
+            let found = _array.findIndex(temName => temName == _name);
+            returnVar = data[found];
+        }
+
+        setTemB(returnVar);
     }
 
     if (isLoading) {
@@ -56,76 +72,90 @@ const Compare = () => {
     }
     else {
 
-        if (JSON.stringify(tem) === '{}') {
-            UpdateTem();
+        if (JSON.stringify(temA) === '{}' || JSON.stringify(temB) === '{}') {
+            UpdateTemA();
+            UpdateTemB();
         }
 
         let array = data.map(e => e.name);
 
+        console.log(data);
+        console.log(temA);
+        console.log(temB);
+
         return (
             <Container className='compare-container'>
-                <Row className='column-gap-3'>
-                    <TemCompare
-                        _tem={tem}
-                    />
+                <Row className='column-gap-3 row-gap-3'>
+                    <Col className='tem-display p-5 d-grid row-gap-3'>
+                        <Row>
+                            <Col>
+                                <Autocomplete
+                                    onChange={(event, value) => UpdateTemA(value, array)}
+                                    disablePortal
+                                    options={array}
+                                    sx={{
+                                        width: '100%',
+                                        height: '100%',
+                                        '& .MuiOutlinedInput-notchedOutline': {
+                                            borderColor: 'transparent',
+                                        },
+                                        '&:hover .MuiOutlinedInput-notchedOutline': {
+                                            borderColor: 'transparent', // Removes the border on hover
+                                        },
+                                        '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                                            borderColor: 'transparent', // Removes the border when focused
+                                        },
+                                    }}
+                                    renderInput={(params) => <TextField {...params} label="Search.." />}
+                                />
+                            </Col>
+                            <Col className='col-4'>
+                                <button className='random-button secondary-text-font display-snippet align-content-center' onClick={() => UpdateTemA(null)}>Random</button>
+                            </Col>
+                        </Row>
 
-                    <Col className='tem-display p-5'>
-                        <Row>
-                            <h3 className='blue-text-color primary-text-font text-center'>Hit Points</h3>
-                            <BarChart
-                                _statOne={tem.stats.hp}
-                                _statTwo={tem.stats.hp}
-                            />
-                        </Row>
-                        <Row>
-                            <h3 className='blue-text-color primary-text-font text-center'>Speed</h3>
-                            <BarChart
-                                _statOne={tem.stats.spd}
-                                _statTwo={tem.stats.spd}
-                            />
-                        </Row>
-                        <Row>
-                            <h3 className='blue-text-color primary-text-font text-center'>Stamina</h3>
-                            <BarChart
-                                _statOne={tem.stats.sta}
-                                _statTwo={tem.stats.sta}
-                            />
-                        </Row>
-                        <Row>
-                            <h3 className='blue-text-color primary-text-font text-center'>Attack</h3>
-                            <BarChart
-                                _statOne={tem.stats.atk}
-                                _statTwo={tem.stats.atk}
-                            />
-                        </Row>
-                        <Row>
-                            <h3 className='blue-text-color primary-text-font text-center'>Special Attack</h3>
-                            <BarChart
-                                _statOne={tem.stats.spatk}
-                                _statTwo={tem.stats.spatk}
-                            />
-                        </Row>
-                        <Row>
-                            <h3 className='blue-text-color primary-text-font text-center'>Defense</h3>
-                            <BarChart
-                                _statOne={tem.stats.def}
-                                _statTwo={tem.stats.def}
-                            />
-                        </Row>
-                        <Row>
-                            <h3 className='blue-text-color primary-text-font text-center'>Special Defense</h3>
-                            <BarChart
-                                _statOne={tem.stats.spdef}
-                                _statTwo={tem.stats.spdef}
-                            />
-                        </Row>
+                        <TemCompare
+                            _tem={temA}
+                        />
                     </Col>
-
-                    <TemCompare
-                        _tem={tem}
-                    />
+                    <Col className='tem-display p-5 row-gap-3'>
+                        <MiddleCompare
+                            _temOne={temA}
+                            _temTwo={temB}
+                        />
+                    </Col>
+                    <Col className='tem-display p-5 d-grid row-gap-3'>
+                        <Row>
+                            <Col>
+                                <Autocomplete
+                                    onChange={(event, value) => UpdateTemB(value, array)}
+                                    disablePortal
+                                    options={array}
+                                    sx={{
+                                        width: '100%',
+                                        height: '100%',
+                                        '& .MuiOutlinedInput-notchedOutline': {
+                                            borderColor: 'transparent',
+                                        },
+                                        '&:hover .MuiOutlinedInput-notchedOutline': {
+                                            borderColor: 'transparent', // Removes the border on hover
+                                        },
+                                        '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                                            borderColor: 'transparent', // Removes the border when focused
+                                        },
+                                    }}
+                                    renderInput={(params) => <TextField {...params} label="Search.." />}
+                                />
+                            </Col>
+                            <Col className='col-4'>
+                                <button className='random-button secondary-text-font display-snippet align-content-center' onClick={() => UpdateTemB(null)}>Random</button>
+                            </Col>
+                        </Row>
+                        <TemCompare
+                            _tem={temB}
+                        />
+                    </Col>
                 </Row>
-
             </Container>
         );
 

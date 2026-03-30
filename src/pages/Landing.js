@@ -32,7 +32,6 @@ const Landing = () => {
             setLoading(false);
         };
 
-
         getData();
 
     }, []);
