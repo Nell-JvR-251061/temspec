@@ -33,7 +33,7 @@ const LineChart = ({_tem, _visibility}) => {
 
     const levels = [1, 5, 15, 25, 50, 75, 100];
     const labels = ['HP', 'SPD', 'STA', 'ATK', 'spATK', 'DEF', 'spDEF'];
-    const colours = ['rgba(0, 255, 0, 1)', 'rgba(255, 212, 0, 1)', 'rgba(255, 128, 0, 1)', 'rgba(255, 0, 0, 1)', 'rgba(255, 0, 123, 1)', 'rgba(0, 0, 255, 1)', 'rgba(0, 170, 255, 1)'];
+    const colours = ['rgba(0, 255, 0, 0.7)', 'rgba(255, 212, 0, 0.7)', 'rgba(255, 128, 0, 0.7)', 'rgba(255, 0, 0, 0.7)', 'rgba(255, 0, 123, 0.7)', 'rgba(0, 0, 255, 0.7)', 'rgba(0, 170, 255, 0.7)'];
 
 
     let tempDataSets = [];

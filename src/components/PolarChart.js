@@ -56,7 +56,7 @@ const PolarChart = ({ _statOne, _statTwo, _statThree, _statFour, _statFive, _sta
                 display: true,
                 align: 'end',
                 anchor: 'center',
-                offset: -5,
+                offset: 20,
                 color: '#ffb23f',
                 font: { weight: 'bold', size: '18px' },
                 formatter: (value, context) => {

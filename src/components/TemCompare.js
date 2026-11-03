@@ -31,20 +31,22 @@ const TemCompare = ({ _tem }) => {
                 </Col>
             </Row>
 
-            <Row>
-                <h3 className='blue-text-color primary-text-font text-center'>Gender Ratio</h3>
-            </Row>
+            {/* <Row>
+                
+            </Row> */}
             <Row className='justify-content-center'>
+                <h3 className='blue-text-color primary-text-font text-center mb-2'>Gender Ratio</h3>
                 <PieChart
                     _statOne={_tem.genderRatio.male}
                     _statTwo={_tem.genderRatio.female}
                 />
             </Row>
 
-            <Row>
-                <h3 className='blue-text-color primary-text-font text-center'>Training Values</h3>
-            </Row>
+            {/* <Row>
+                
+            </Row> */}
             <Row className='justify-content-center'>
+                <h3 className='blue-text-color primary-text-font text-center mb-3'>Training Values</h3>
                 <PolarChart
                     _statOne={_tem.tvYields.atk + 5}
                     _statTwo={_tem.tvYields.def + 5}
