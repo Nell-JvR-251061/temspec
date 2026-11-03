@@ -79,13 +79,13 @@ const Compare = () => {
 
         let array = data.map(e => e.name);
 
-        console.log(data);
-        console.log(temA);
-        console.log(temB);
+        //console.log(data);
+        //console.log(temA);
+        //console.log(temB);
 
         return (
-            <Container className='compare-container'>
-                <Row className='column-gap-3 row-gap-3'>
+            <Container className='compare-container px-5'>
+                <Row className='column-gap-5 row-gap-3'>
                     <Col className='tem-display p-5 d-grid row-gap-3'>
                         <Row>
                             <Col>
@@ -118,7 +118,7 @@ const Compare = () => {
                             _tem={temA}
                         />
                     </Col>
-                    <Col className='tem-display p-5 row-gap-3'>
+                    <Col className='tem-display p-4 row-gap-3'>
                         <MiddleCompare
                             _temOne={temA}
                             _temTwo={temB}

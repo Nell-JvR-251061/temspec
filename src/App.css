@@ -27,60 +27,60 @@
   font-family: "Ubuntu";
 }
 
-.bg-green{
+.bg-green {
   background-color: rgba(0, 255, 0, 0.7) !important;
 }
-.bg-green:hover{
+.bg-green:hover {
   background-color: rgba(0, 255, 0, 1) !important;
 }
 
-.bg-orange{
+.bg-orange {
   background-color: rgba(255, 128, 0, 0.7) !important;
 }
-.bg-orange:hover{
+.bg-orange:hover {
   background-color: rgba(255, 128, 0, 1) !important;
 }
 
-.bg-yellow{
+.bg-yellow {
   background-color: rgba(255, 212, 0, 0.7) !important;
 }
-.bg-yellow:hover{
+.bg-yellow:hover {
   background-color: rgba(255, 212, 0, 1) !important;
 }
 
-.bg-red{
+.bg-red {
   background-color: rgba(255, 0, 0, 0.7) !important;
 }
-.bg-red:hover{
+.bg-red:hover {
   background-color: rgba(255, 0, 0, 1) !important;
 }
 
-.bg-pink{
+.bg-pink {
   background-color: rgba(255, 0, 123, 0.7) !important;
 }
-.bg-pink:hover{
+.bg-pink:hover {
   background-color: rgba(255, 0, 123, 1) !important;
 }
 
-.bg-blue{
+.bg-blue {
   background-color: rgba(0, 0, 255, 0.7) !important;
 }
-.bg-blue:hover{
+.bg-blue:hover {
   background-color: rgba(0, 0, 255, 1) !important;
 }
 
-.bg-light-blue{
+.bg-light-blue {
   background-color: rgba(0, 170, 255, 0.7) !important;
 }
-.bg-light-blue:hover{
+.bg-light-blue:hover {
   background-color: rgba(0, 170, 255, 1) !important;
 }
 
-.no-margin{
+.no-margin {
   margin: 0;
 }
 
-h4{
+h4 {
   margin: 0 !important;
 }
 
@@ -186,24 +186,29 @@ a.menu.active {
 
 /* Info Card Adjustments*/
 .landing-left {
-  padding-left: 4%;
-  padding-right: 4%;
+  /* padding-left: 4%;
+  padding-right: 4%; */
   margin-top: 25px;
+  padding-right: 5rem;
 }
 
 .landing-right {
-  padding: 3% !important;
+  /* padding: 3% !important; */
   margin-top: 25px;
   background-color: var(--primary-purple);
-  box-shadow: 20px 20px 25px black;
+  box-shadow: 10px 10px 25px 10px black;
   border-radius: 24px;
+}
+
+.evo-img {
+  padding: 2rem 3rem;
 }
 
 .info-card-top {
   padding: 0 !important;
   background-color: var(--primary-purple);
   border-radius: 16px;
-  box-shadow: 20px 20px 25px black;
+  box-shadow: 10px 10px 25px 10px black;
 }
 
 .info-card-title {
@@ -218,6 +223,8 @@ a.menu.active {
   font-family: "Ubuntu";
   background-color: var(--secondary-purple);
   border-radius: 16px;
+  font-size: 1.25rem;
+  color: var(--blue) !important;
 }
 
 .card {
@@ -257,17 +264,24 @@ li {
 .tem-display {
   background-color: var(--primary-purple);
   border-radius: 24px;
-  /* padding: 4% 5% 4% 5% !important; */
+  box-shadow: 10px 10px 25px 10px black;
 }
 
-.display-img{
+.display-img {
   width: 100% !important;
+}
+
+.display-img-compare {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  padding: 1rem;
 }
 
 .tem-evo {
   background-color: var(--primary-purple);
   border-radius: 24px;
-  box-shadow: 20px 20px 25px black;
+  box-shadow: 10px 10px 25px 10px black;
 }
 
 .evo-title {
@@ -275,12 +289,12 @@ li {
 }
 
 .evo-card {
-  padding: 3% 3% 0% 3%;
+  /* padding: 5% 5% 0% 5%; */
   background-color: var(--secondary-purple);
   border-radius: 24px 24px 0px 0px;
 }
 
-.evo-names{
+.evo-names {
   padding: 2%;
   background-color: var(--secondary-purple);
   border-radius: 0px 0px 24px 24px;
@@ -304,6 +318,14 @@ li {
   border-radius: 8px;
 }
 
+.image-bg-compare {
+  background-color: var(--blue);
+  padding: 1%;
+  border-radius: 16px;
+  height: 300px;
+  width: 210px;
+}
+
 .info-card {
   margin-bottom: 25px;
 }
@@ -320,20 +342,19 @@ li {
   font-size: 0.9rem;
 }
 
-.pie-display{
+.pie-display {
   width: 75% !important;
 }
 
-.polar-display{
+.polar-display {
   width: 75% !important;
 }
 
-.compare-container{
-  padding:0% 4% 0% 4% !important;
+.compare-container {
   margin-top: 25px;
 }
 
-.random-button{
+.random-button {
   background-color: var(--secondary-purple);
   border-radius: 16px;
   width: 100%;
@@ -343,43 +364,43 @@ li {
   color: var(--blue);
   margin-bottom: 10px;
 }
-.random-button:hover{
+.random-button:hover {
   background-color: var(--blue);
   color: var(--primary-purple);
 }
 
-.stat-button{
+.stat-button {
   font-size: 24px;
   border: none;
   font-family: "Ubuntu";
 }
 
-.MuiFormControl-root{
+.MuiFormControl-root {
   background-color: var(--blue) !important;
   border-radius: 16px;
   border: none !important;
 }
 
-.MuiFormControl-root:hover{
+.MuiFormControl-root:hover {
   border: none !important;
 }
 
-.MuiInputBase-input{
+.MuiInputBase-input {
   background-color: var(--blue) !important;
   font-family: "Ubuntu" !important;
   border: none !important;
 }
-.MuiInputBase-input:hover{
+.MuiInputBase-input:hover {
   border: none !important;
 }
 
-.image-bg{
+.image-bg {
   background-color: rgba(232, 242, 242, 0.8);
   border-radius: 16px;
   padding: 5%;
 }
 
-#landing-button{
+#landing-button {
   display: flex;
   justify-content: center;
   align-items: center;

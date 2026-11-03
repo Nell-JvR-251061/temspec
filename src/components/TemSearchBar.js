@@ -35,8 +35,8 @@ const TemSearchBar = () => {
 
         const array = data.map(e => e.name);
 
-        console.log(data);
-        console.log(array);
+        //console.log(data);
+        //console.log(array);
 
         return (
             <div>

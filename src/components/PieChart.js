@@ -33,13 +33,13 @@ const PieChart = ({ _statOne, _statTwo }) => {
             legend: {
                 display: true,
                 align: 'center',
-                
+
                 labels: {
                     color: 'rgba(232, 242, 242, 1)',
                     font: {
                         family: "Ubuntu",
                         size: 18,
-                        
+
                     },
                 },
             },
@@ -58,10 +58,21 @@ const PieChart = ({ _statOne, _statTwo }) => {
         },
     };
 
+    const legendSpacing = {
+        id: 'legendSpacing',
+        beforeInit(chart) {
+            const fitValue = chart.legend.fit;
+            chart.legend.fit = function fit() {
+                fitValue.bind(chart.legend)();
+                this.height += 25;
+            };
+        }
+    };
+
     return (
-        <div className='pie-display'>
-            <Pie data={data} options={options} />
-        </div>
+        <div className='pie-display' >
+            <Pie data={data} options={options} plugins={[legendSpacing]}/>
+        </div >
     );
 
 

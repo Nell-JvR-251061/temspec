@@ -20,7 +20,7 @@ ChartJS.register(
 const BarChart = ({ _statOne, _statTwo }) => {
 
     const data = {
-        labels: ['Now', 'Stuff', 'stuff'],
+        labels: ['Now', 'spacing'],
         datasets: [
             {
                 label: 'Dataset 1',
@@ -42,7 +42,7 @@ const BarChart = ({ _statOne, _statTwo }) => {
         maintainAspectRatio: false,
         scales: {
             x: {
-                categoryPercentage: 1,
+                categoryPercentage: 1.0,
                 stacked: true,
                 grid: {
                     display: false
@@ -55,8 +55,8 @@ const BarChart = ({ _statOne, _statTwo }) => {
                     display: false
                 },
                 display: false,
-                barPercentage: 1,
-                categoryPercentage: 1,
+                barPercentage: 1.0,
+                categoryPercentage: 1.0,
             },
         },
         plugins: {

@@ -28,14 +28,14 @@ const TemDisplay = (_tem) => {
 
     return (
         <Container>
-            <Row className='blue-text-color column-gap-3'>
-                <Col className='d-grid row-gap-3'>
+            <Row className='blue-text-color column-gap-5'>
+                <Col className='d-grid row-gap-5'>
                     <Row>
                         <Col className='image-bg align-content-center'>
-                            <img src={temImg} className='col-6 display-img'></img>
+                            <img src={temImg} className='col-6 display-img p-2'></img>
                         </Col>
                         <Col className='image-bg align-content-center'>
-                            <img src={temLumaImg} className='col-6 display-img flip-image'></img>
+                            <img src={temLumaImg} className='col-6 display-img flip-image p-2'></img>
                         </Col>
                     </Row>
                     <Row className='display-snippet secondary-text-font'>
@@ -60,7 +60,7 @@ const TemDisplay = (_tem) => {
 
                         </Col>
                         <Col className='text-end align-content-center'>
-                            <h4>{temCatcatchRate}</h4>
+                            <h4>{temCatcatchRate}%</h4>
                         </Col>
                     </Row>
                     <Row className='display-snippet text-center secondary-text-font'>
@@ -73,7 +73,7 @@ const TemDisplay = (_tem) => {
                     </Row>
                 </Col>
 
-                <Col className='d-grid row-gap-3'>
+                <Col className='d-grid row-gap-4'>
                     <Row className='text-center'>
                         <Col className='col-12 col-md-6'>
                             <h3 className='blue-text-color primary-text-font align-content-center'>{temName}</h3>
@@ -82,7 +82,7 @@ const TemDisplay = (_tem) => {
                             <h3 className='blue-text-color primary-text-font align-content-center'>[ {temNumber} ]</h3>
                         </Col>
                     </Row>
-                    <Row className='text-center column-gap-3'>
+                    <Row className='text-center column-gap-4'>
                         {temTypes.map((type, index) => (
                             <Col className='display-snippet secondary-text-font align-content-center' key={index}> <h4>{type}</h4></Col>
                         ))}

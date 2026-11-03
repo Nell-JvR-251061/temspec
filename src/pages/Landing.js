@@ -63,17 +63,17 @@ const Landing = () => {
         let array = data.map(e => e.name);
 
         return (
-            <div className='d-flex flex-row flex-wrap'>
-                <div className='landing-left col-lg-5 col-12'>
+            <div className='d-flex flex-row flex-wrap px-5'>
+                <div className='landing-left col-lg-6 col-12 d-flex flex-column justify-content-between'>
                     <InfoCard />
                     <TemEvolutionCard
                         _dataBase={data}
                         _tem={tem}
                     />
                 </div>
-                <Container className='landing-right col-lg-6 col-12 d-grid row-gap-4'>
+                <Container className='landing-right col-lg-6 col-12 d-grid row-gap-4 p-5'>
                     <Row>
-                        <Col className='d-grid row-gap-3'>
+                        <Col className='d-grid row-gap-4'>
                             <Autocomplete
                                 onChange={(event, value) => UpdateTem(value, array)}
                                 disablePortal
@@ -94,7 +94,7 @@ const Landing = () => {
                                 renderInput={(params) => <TextField {...params} label="Search.." />}
                             />
                         </Col>
-                        <Col className='col-4 d-grid row-gap-3'>
+                        <Col className='col-4 d-grid row-gap-4'>
                             <button id='landing-button' className='random-button secondary-text-font display-snippet align-content-center' onClick={() => UpdateTem(null)}>Random</button>
                         </Col>
                     </Row>

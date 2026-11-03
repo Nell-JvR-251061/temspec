@@ -9,7 +9,7 @@ import Col from 'react-bootstrap/Col';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-const TemCompare = ({_tem}) => {
+const TemCompare = ({ _tem }) => {
 
     return (
         <div className='d-grid row-gap-5'>
@@ -22,12 +22,12 @@ const TemCompare = ({_tem}) => {
                 </Col>
             </Row>
 
-            <Row >
-                <Col className='image-bg align-content-center'>
-                    <img src={_tem.wikiRenderStaticUrl} className='col-6 display-img'></img>
+            <Row>
+                <Col className='image-bg-compare align-content-center text-center'>
+                    <img src={_tem.wikiRenderStaticUrl} className='display-img-compare' alt="Static view" />
                 </Col>
-                <Col className='image-bg align-content-center'>
-                    <img src={_tem.wikiRenderStaticLumaUrl} className='col-6 display-img flip-image'></img>
+                <Col className='image-bg-compare align-content-center text-center'>
+                    <img src={_tem.wikiRenderStaticLumaUrl} className='display-img-compare flip-image' alt="Luma view" />
                 </Col>
             </Row>
 
@@ -36,8 +36,8 @@ const TemCompare = ({_tem}) => {
             </Row>
             <Row className='justify-content-center'>
                 <PieChart
-                    _statOne = {_tem.genderRatio.male}
-                    _statTwo = {_tem.genderRatio.female}
+                    _statOne={_tem.genderRatio.male}
+                    _statTwo={_tem.genderRatio.female}
                 />
             </Row>
 

@@ -27,12 +27,12 @@ const TemEvolutionCard = ({_dataBase, _tem }) => {
             <Row className='evo-card'>
                 {imgs.map((url, index) => (
                     <Col key={index} className='d-flex flex-column justify-content-center align-items-center justify-content-evenly'>
-                        <img src={url} className='img-fluid justify-self-center'></img>
+                        <img src={url} className='img-fluid justify-self-center evo-img'></img>
                     </Col>
                 ))}
             </Row>
 
-            <Row className='evo-names'>
+            <Row className='evo-names pb-5'>
                 {imgs.map((url, index) => (
                     <Col key={index} className='d-flex flex-column justify-content-center align-items-center justify-content-evenly'>
                         <h4 className='blue-text-color'>{names[index]}</h4>
